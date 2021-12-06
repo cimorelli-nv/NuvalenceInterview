@@ -30,40 +30,6 @@ public class Rectangle {
         this._bottomRightPoint = new Point(bottomRightX, bottomRightY);
     }
 
-    /**
-     * Check if this rectangle is valid; requires that both points be set (not null) and that the top left point is
-     * above and to the left of the bottom right point.
-     */
-    public ValidationResult validate() {
-        ValidationResult valid = new ValidationResult(true);
-
-        // Make sure both points are set (not null)
-        if (_topLeftPoint == null) {
-            valid.set_valid(false);
-            valid.addError("Top left point is null");
-        }
-        if (_bottomRightPoint == null) {
-            valid.set_valid(false);
-            valid.addError("Bottom right point is null");
-        }
-        if (!valid.is_valid()) {
-            return valid;
-        }
-
-        // If both points are set, make sure the top left is above and left of the bottom right
-        if (_topLeftPoint.get_x() >= _bottomRightPoint.get_x() || _topLeftPoint.get_y() <= _bottomRightPoint.get_y()) {
-            valid.set_valid(false);
-            valid.addError(
-                "Top left point "
-                    + _topLeftPoint
-                    + " is not above and to the left of bottom right point "
-                    + _bottomRightPoint
-            );
-        }
-
-        return valid;
-    }
-
     @Override
     public String toString() {
         return "Rectangle{" +
