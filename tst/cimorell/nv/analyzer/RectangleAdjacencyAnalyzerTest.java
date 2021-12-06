@@ -10,8 +10,8 @@ public class RectangleAdjacencyAnalyzerTest {
     public void proper_adjacency() {
         // Prepare
         RectangleAdjacencyAnalyzer analyzer = new RectangleAdjacencyAnalyzer();
-        Rectangle r1 = new Rectangle(0, 3, 3, 0);
-        Rectangle r2 = new Rectangle(3, 3, 4, 0);
+        Rectangle r1 = new Rectangle(0, 0, 3, 3);
+        Rectangle r2 = new Rectangle(3, 0, 4, 3);
 
         // Test
         AnalysisResult result = analyzer.analyze(r1, r2);
@@ -25,8 +25,8 @@ public class RectangleAdjacencyAnalyzerTest {
     public void sub_line_adjacency() {
         // Prepare
         RectangleAdjacencyAnalyzer analyzer = new RectangleAdjacencyAnalyzer();
-        Rectangle r1 = new Rectangle(0, 3, 3, 0);
-        Rectangle r2 = new Rectangle(3, 2, 4, 1);
+        Rectangle r1 = new Rectangle(0, 0, 3, 3);
+        Rectangle r2 = new Rectangle(3, 1, 4, 2);
 
         // Test
         AnalysisResult result = analyzer.analyze(r1, r2);
@@ -37,11 +37,44 @@ public class RectangleAdjacencyAnalyzerTest {
     }
 
     @Test
+    public void sub_line_adjacency_on_two_edges() {
+        // Prepare
+        RectangleAdjacencyAnalyzer analyzer = new RectangleAdjacencyAnalyzer();
+        Rectangle r1 = new Rectangle(0, 0, 3, 3);
+        Rectangle r2 = new Rectangle(2, 1, 3, 3);
+
+        // Test
+        AnalysisResult result = analyzer.analyze(r1, r2);
+
+        // Verify
+        Assertions.assertTrue(result.get_meetsCondition());
+        Assertions.assertEquals(RectangleAdjacencyAnalyzer.ADJACENCY_SUB_LINE, result.get_description());
+    }
+
+    @Test
+    public void proper_and_sub_line_adjacency() {
+        // Prepare
+        RectangleAdjacencyAnalyzer analyzer = new RectangleAdjacencyAnalyzer();
+        Rectangle r1 = new Rectangle(0, 0, 3, 3);
+        Rectangle r2 = new Rectangle(1, 0, 3, 3);
+
+        // Test
+        AnalysisResult result = analyzer.analyze(r1, r2);
+
+        // Verify
+        Assertions.assertTrue(result.get_meetsCondition());
+        Assertions.assertEquals(
+            RectangleAdjacencyAnalyzer.ADJACENCY_PROPER + ", " + RectangleAdjacencyAnalyzer.ADJACENCY_SUB_LINE,
+            result.get_description()
+        );
+    }
+
+    @Test
     public void partial_adjacency() {
         // Prepare
         RectangleAdjacencyAnalyzer analyzer = new RectangleAdjacencyAnalyzer();
-        Rectangle r1 = new Rectangle(0, 3, 3, 0);
-        Rectangle r2 = new Rectangle(3, 4, 4, 1);
+        Rectangle r1 = new Rectangle(0, 0, 3, 3);
+        Rectangle r2 = new Rectangle(3, 1, 4, 4);
 
         // Test
         AnalysisResult result = analyzer.analyze(r1, r2);
@@ -55,8 +88,8 @@ public class RectangleAdjacencyAnalyzerTest {
     public void no_adjacency() {
         // Prepare
         RectangleAdjacencyAnalyzer analyzer = new RectangleAdjacencyAnalyzer();
-        Rectangle r1 = new Rectangle(0, 3, 3, 0);
-        Rectangle r2 = new Rectangle(4, 2, 5, 1);
+        Rectangle r1 = new Rectangle(0, 0, 3, 3);
+        Rectangle r2 = new Rectangle(4, 1, 5, 2);
 
         // Test
         AnalysisResult result = analyzer.analyze(r1, r2);
