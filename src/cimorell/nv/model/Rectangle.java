@@ -1,5 +1,7 @@
 package cimorell.nv.model;
 
+import java.util.Objects;
+
 /**
  * Represents a rectangle on a cartesian plane, described by two Points: the top left Point and the bottom right Point.
  */
@@ -36,5 +38,23 @@ public class Rectangle {
             "Top left=" + _topLeftPoint +
             ", Bottom right=" + _bottomRightPoint +
             '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Rectangle)) {
+            return false;
+        }
+        Rectangle rectangle = (Rectangle) o;
+        return Objects.equals(_topLeftPoint, rectangle._topLeftPoint) &&
+            Objects.equals(_bottomRightPoint, rectangle._bottomRightPoint);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(_topLeftPoint, _bottomRightPoint);
     }
 }

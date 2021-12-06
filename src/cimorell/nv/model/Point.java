@@ -1,5 +1,7 @@
 package cimorell.nv.model;
 
+import java.util.Objects;
+
 /**
  * A single point on a cartesian plane, described by X and Y coordinates.
  */
@@ -28,5 +30,22 @@ public class Point {
     @Override
     public String toString() {
         return "(" + _x + "," + _y + ")";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Point)) {
+            return false;
+        }
+        Point point = (Point) o;
+        return Double.compare(point._x, _x) == 0 && Double.compare(point._y, _y) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(_x, _y);
     }
 }
