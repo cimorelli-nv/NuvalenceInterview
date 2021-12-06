@@ -34,10 +34,7 @@ public class Rectangle {
 
     @Override
     public String toString() {
-        return "Rectangle{" +
-            "Bottom left=" + _bottomLeftPoint +
-            ", Top right=" + _topRightPoint +
-            '}';
+        return "{" + _bottomLeftPoint + " to " + _topRightPoint + "}";
     }
 
     @Override

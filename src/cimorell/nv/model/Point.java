@@ -29,7 +29,16 @@ public class Point {
 
     @Override
     public String toString() {
-        return "(" + _x + "," + _y + ")";
+        return "(" + doubleToPrettyString(_x) + "," + doubleToPrettyString(_y) + ")";
+    }
+
+    private String doubleToPrettyString(double d) {
+        // If there is no fractional component, print without decimal (e.g. 4.203 prints as 4.203, but 3.0 prints as 3)
+        String s = String.valueOf(d);
+        if (s.endsWith(".0")) {
+            s = s.substring(0, s.length()-2);
+        }
+        return s;
     }
 
     @Override
