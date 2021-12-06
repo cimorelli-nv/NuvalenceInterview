@@ -18,6 +18,7 @@ public class RectangleIntersectionAnalyzerTest {
 
         // Verify
         Assertions.assertFalse(result.get_meetsCondition());
+        Assertions.assertNull(result.get_description());
     }
 
     @Test

@@ -23,7 +23,7 @@ public class RectanglePointAnalyzerTest {
         // Test
         boolean result = analyzer.rectangleContainsPoint(rectangle, point);
 
-        // Validate
+        // Verify
         Assertions.assertTrue(result);
     }
 
@@ -37,7 +37,7 @@ public class RectanglePointAnalyzerTest {
         // Test
         boolean result = analyzer.rectangleContainsPoint(rectangle, point);
 
-        // Validate
+        // Verify
         Assertions.assertFalse(result);
     }
 
@@ -51,7 +51,7 @@ public class RectanglePointAnalyzerTest {
         // Test
         boolean result = analyzer.rectangleContainsPoint(rectangle, point);
 
-        // Validate
+        // Verify
         Assertions.assertFalse(result);
     }
 
@@ -65,7 +65,7 @@ public class RectanglePointAnalyzerTest {
         // Test
         boolean result = analyzer.rectangleContainsPoint(rectangle, point);
 
-        // Validate
+        // Verify
         Assertions.assertFalse(result);
     }
 }
