@@ -1,5 +1,5 @@
 # Nuvalence Interview
-Coding excercise - "Rectangles Programming Sample"
+Coding exercise - "Rectangles Programming Sample"
 
 ## Problem Description
 You are required to write code in the language of your choice implementing certain algorithms that
