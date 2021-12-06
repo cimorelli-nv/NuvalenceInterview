@@ -10,8 +10,8 @@ public class RectangleContainmentAnalyzerTest {
     public void contained() {
         // Prepare
         RectangleContainmentAnalyzer analyzer = new RectangleContainmentAnalyzer();
-        Rectangle r1 = new Rectangle(0, 4, 4, 0);
-        Rectangle r2 = new Rectangle(1, 3, 2, 2);
+        Rectangle r1 = new Rectangle(0, 0, 4, 4);
+        Rectangle r2 = new Rectangle(1, 2, 2, 3);
 
         // Test
         AnalysisResult result = analyzer.analyze(r1, r2);
@@ -25,8 +25,8 @@ public class RectangleContainmentAnalyzerTest {
     public void no_containment_not_touching() {
         // Prepare
         RectangleContainmentAnalyzer analyzer = new RectangleContainmentAnalyzer();
-        Rectangle r1 = new Rectangle(0, 3, 3, 0);
-        Rectangle r2 = new Rectangle(4, 2, 6, 1);
+        Rectangle r1 = new Rectangle(0, 0, 3, 3);
+        Rectangle r2 = new Rectangle(4, 1, 6, 2);
 
         // Test
         AnalysisResult result = analyzer.analyze(r1, r2);
@@ -40,8 +40,8 @@ public class RectangleContainmentAnalyzerTest {
     public void intersecting_on_one_edge() {
         // Prepare
         RectangleContainmentAnalyzer analyzer = new RectangleContainmentAnalyzer();
-        Rectangle r1 = new Rectangle(0, 3, 4, 0);
-        Rectangle r2 = new Rectangle(2, 2, 3, 0);
+        Rectangle r1 = new Rectangle(0, 0, 4, 3);
+        Rectangle r2 = new Rectangle(2, 0, 3, 2);
 
         // Test
         AnalysisResult result = analyzer.analyze(r1, r2);
@@ -55,8 +55,8 @@ public class RectangleContainmentAnalyzerTest {
     public void nearly_contained_but_touching_on_one_edge() {
         // Prepare
         RectangleContainmentAnalyzer analyzer = new RectangleContainmentAnalyzer();
-        Rectangle r1 = new Rectangle(0, 4, 4, 0);
-        Rectangle r2 = new Rectangle(1, 4, 3, 2);
+        Rectangle r1 = new Rectangle(0, 0, 4, 4);
+        Rectangle r2 = new Rectangle(1, 2, 3, 4);
 
         // Test
         AnalysisResult result = analyzer.analyze(r1, r2);

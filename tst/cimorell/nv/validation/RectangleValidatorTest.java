@@ -20,7 +20,7 @@ public class RectangleValidatorTest {
     public void valid_rectangle_has_valid_true_and_no_errors() {
         // Prepare
         RectangleValidator validator = new RectangleValidator();
-        Rectangle rect = new Rectangle(1, 4, 3, 2);
+        Rectangle rect = new Rectangle(1, 2, 3, 4);
 
         // Test
         ValidationResult valid = validator.validate(rect);
@@ -44,8 +44,8 @@ public class RectangleValidatorTest {
         Assertions.assertFalse(valid.is_valid());
         List<String> errors = valid.get_errors();
         Assertions.assertEquals(2, errors.size());
-        Assertions.assertTrue(errors.contains("Top left point is null"));
-        Assertions.assertTrue(errors.contains("Bottom right point is null"));
+        Assertions.assertTrue(errors.contains("Bottom left point is null"));
+        Assertions.assertTrue(errors.contains("Top right point is null"));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class RectangleValidatorTest {
         Assertions.assertFalse(valid.is_valid());
         List<String> errors = valid.get_errors();
         Assertions.assertEquals(1, errors.size());
-        Assertions.assertTrue(errors.contains("Bottom right point is null"));
+        Assertions.assertTrue(errors.contains("Top right point is null"));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class RectangleValidatorTest {
         Assertions.assertFalse(valid.is_valid());
         List<String> errors = valid.get_errors();
         Assertions.assertEquals(1, errors.size());
-        Assertions.assertTrue(errors.get(0).contains("is not above and to the left of bottom right point"));
+        Assertions.assertTrue(errors.get(0).contains("is not below and to the left of top right point"));
     }
 
     @Test
@@ -102,7 +102,7 @@ public class RectangleValidatorTest {
         Assertions.assertFalse(valid.is_valid());
         List<String> errors = valid.get_errors();
         Assertions.assertEquals(1, errors.size());
-        Assertions.assertTrue(errors.get(0).contains("is not above and to the left of bottom right point"));
+        Assertions.assertTrue(errors.get(0).contains("is not below and to the left of top right point"));
     }
 
     @Test
@@ -121,7 +121,7 @@ public class RectangleValidatorTest {
         Assertions.assertFalse(valid.is_valid());
         List<String> errors = valid.get_errors();
         Assertions.assertEquals(1, errors.size());
-        Assertions.assertTrue(errors.get(0).contains("is not above and to the left of bottom right point"));
+        Assertions.assertTrue(errors.get(0).contains("is not below and to the left of top right point"));
     }
 
     @Test
@@ -129,8 +129,8 @@ public class RectangleValidatorTest {
         // Prepare
         RectangleValidator validator = new RectangleValidator();
         Rectangle rect = new Rectangle(
-            new Point(3, 2),
-            new Point(1, 4)
+            new Point(3, 4),
+            new Point(1, 2)
         );
 
         // Test
@@ -140,6 +140,6 @@ public class RectangleValidatorTest {
         Assertions.assertFalse(valid.is_valid());
         List<String> errors = valid.get_errors();
         Assertions.assertEquals(1, errors.size());
-        Assertions.assertTrue(errors.get(0).contains("is not above and to the left of bottom right point"));
+        Assertions.assertTrue(errors.get(0).contains("is not below and to the left of top right point"));
     }
 }

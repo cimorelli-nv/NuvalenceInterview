@@ -3,40 +3,40 @@ package cimorell.nv.model;
 import java.util.Objects;
 
 /**
- * Represents a rectangle on a cartesian plane, described by two Points: the top left Point and the bottom right Point.
+ * Represents a rectangle on a cartesian plane, described by two Points: the bottom left Point and the top right Point.
  */
 public class Rectangle {
-    private Point _topLeftPoint;
-    public Point get_topLeftPoint() {
-        return _topLeftPoint;
+    private Point _bottomLeftPoint;
+    public Point get_bottomLeftPoint() {
+        return _bottomLeftPoint;
     }
-    public void set_topLeftPoint(Point val) {
-        _topLeftPoint = val;
-    }
-
-    private Point _bottomRightPoint;
-    public Point get_bottomRightPoint() {
-        return _bottomRightPoint;
-    }
-    public void set_bottomRightPoint(Point val) {
-        _bottomRightPoint = val;
+    public void set_bottomLeftPoint(Point val) {
+        _bottomLeftPoint = val;
     }
 
-    public Rectangle(Point topLeftPoint, Point bottomRightPoint) {
-        this._topLeftPoint = topLeftPoint;
-        this._bottomRightPoint = bottomRightPoint;
+    private Point _topRightPoint;
+    public Point get_topRightPoint() {
+        return _topRightPoint;
+    }
+    public void set_topRightPoint(Point val) {
+        _topRightPoint = val;
     }
 
-    public Rectangle(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY) {
-        this._topLeftPoint = new Point(topLeftX, topLeftY);
-        this._bottomRightPoint = new Point(bottomRightX, bottomRightY);
+    public Rectangle(Point bottomLeftPoint, Point topRightPoint) {
+        this._bottomLeftPoint = bottomLeftPoint;
+        this._topRightPoint = topRightPoint;
+    }
+
+    public Rectangle(double bottomLeftX, double bottomLeftY, double topRightX, double topRightY) {
+        this._bottomLeftPoint = new Point(bottomLeftX, bottomLeftY);
+        this._topRightPoint = new Point(topRightX, topRightY);
     }
 
     @Override
     public String toString() {
         return "Rectangle{" +
-            "Top left=" + _topLeftPoint +
-            ", Bottom right=" + _bottomRightPoint +
+            "Bottom left=" + _bottomLeftPoint +
+            ", Top right=" + _topRightPoint +
             '}';
     }
 
@@ -49,12 +49,12 @@ public class Rectangle {
             return false;
         }
         Rectangle rectangle = (Rectangle) o;
-        return Objects.equals(_topLeftPoint, rectangle._topLeftPoint) &&
-            Objects.equals(_bottomRightPoint, rectangle._bottomRightPoint);
+        return Objects.equals(_bottomLeftPoint, rectangle._bottomLeftPoint) &&
+            Objects.equals(_topRightPoint, rectangle._topRightPoint);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(_topLeftPoint, _bottomRightPoint);
+        return Objects.hash(_bottomLeftPoint, _topRightPoint);
     }
 }

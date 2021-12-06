@@ -18,9 +18,9 @@ public class RectanglePointAnalyzer {
     public boolean rectangleContainsPoint(Rectangle rectangle, Point point) {
         // A point is within a rectangle if its x-coordinate is between the x-coordinates of opposite corners of the
         // rectangle, and if its y-coordinate is between the y-coordinates of opposite corners.
-        return point.get_x() > rectangle.get_topLeftPoint().get_x() &&
-            point.get_x() < rectangle.get_bottomRightPoint().get_x() &&
-            point.get_y() < rectangle.get_topLeftPoint().get_y() &&
-            point.get_y() > rectangle.get_bottomRightPoint().get_y();
+        return point.get_x() > rectangle.get_bottomLeftPoint().get_x() &&
+            point.get_x() < rectangle.get_topRightPoint().get_x() &&
+            point.get_y() > rectangle.get_bottomLeftPoint().get_y() &&
+            point.get_y() < rectangle.get_topRightPoint().get_y();
     }
 }

@@ -18,7 +18,7 @@ public class RectanglePointAnalyzerTest {
         // Prepare
         RectanglePointAnalyzer analyzer = new RectanglePointAnalyzer();
         Point point = new Point(2, 2);
-        Rectangle rectangle = new Rectangle(1, 3, 3, 1);
+        Rectangle rectangle = new Rectangle(1, 1, 3, 3);
 
         // Test
         boolean result = analyzer.rectangleContainsPoint(rectangle, point);
@@ -32,7 +32,7 @@ public class RectanglePointAnalyzerTest {
         // Prepare
         RectanglePointAnalyzer analyzer = new RectanglePointAnalyzer();
         Point point = new Point(1, 4);
-        Rectangle rectangle = new Rectangle(1, 3, 3, 1);
+        Rectangle rectangle = new Rectangle(1, 1, 3, 3);
 
         // Test
         boolean result = analyzer.rectangleContainsPoint(rectangle, point);
@@ -46,7 +46,7 @@ public class RectanglePointAnalyzerTest {
         // Prepare
         RectanglePointAnalyzer analyzer = new RectanglePointAnalyzer();
         Point point = new Point(1, 2);
-        Rectangle rectangle = new Rectangle(1, 3, 3, 1);
+        Rectangle rectangle = new Rectangle(1, 1, 3, 3);
 
         // Test
         boolean result = analyzer.rectangleContainsPoint(rectangle, point);
@@ -60,7 +60,7 @@ public class RectanglePointAnalyzerTest {
         // Prepare
         RectanglePointAnalyzer analyzer = new RectanglePointAnalyzer();
         Point point = new Point(1, 3);
-        Rectangle rectangle = new Rectangle(1, 3, 3, 1);
+        Rectangle rectangle = new Rectangle(1, 1, 3, 3);
 
         // Test
         boolean result = analyzer.rectangleContainsPoint(rectangle, point);

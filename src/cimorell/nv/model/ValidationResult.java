@@ -9,21 +9,17 @@ import java.util.List;
  */
 public class ValidationResult {
     private boolean _valid;
-
     public boolean is_valid() {
         return _valid;
     }
-
     public void set_valid(boolean _valid) {
         this._valid = _valid;
     }
 
     private List<String> _errors;
-
     public List<String> get_errors() {
         return _errors;
     }
-
     public void set_errors(List<String> _errors) {
         this._errors = _errors;
     }

@@ -13,6 +13,7 @@ public class RectangleContainmentAnalyzer implements RectangleAnalyzer {
     /**
      * Test if one rectangle is contained within another rectangle. To be contained, the inner rectangle cannot touch
      * the outer rectangle at any point.
+     *
      * @param rectangle1 The outer rectangle, which must contain rectangle2 within it.
      * @param rectangle2 The inner rectangle, which must be contained within rectangle1.
      * @return An AnalysisResult object with meetsCondition indicating whether rectangle1 contains rectangle2. The
@@ -20,10 +21,12 @@ public class RectangleContainmentAnalyzer implements RectangleAnalyzer {
      */
     @Override
     public AnalysisResult analyze(Rectangle rectangle1, Rectangle rectangle2) {
-        // Rectangle 2 is contained within rectangle 1 if opposite corners (top left and bottom right) of rectangle 2
+        // Rectangle 2 is contained within rectangle 1 if opposite corners (bottom left and top right) of rectangle 2
         // are both contained within rectangle 1.
-        boolean contained = rectanglePointAnalyzer.rectangleContainsPoint(rectangle1, rectangle2.get_topLeftPoint()) &&
-            rectanglePointAnalyzer.rectangleContainsPoint(rectangle1, rectangle2.get_bottomRightPoint());
+        boolean
+            contained =
+                rectanglePointAnalyzer.rectangleContainsPoint(rectangle1, rectangle2.get_bottomLeftPoint()) &&
+                rectanglePointAnalyzer.rectangleContainsPoint(rectangle1, rectangle2.get_topRightPoint());
 
         return new AnalysisResult(contained);
     }

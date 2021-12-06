@@ -6,21 +6,17 @@ package cimorell.nv.model;
  */
 public class AnalysisResult {
     private boolean _meetsCondition;
-
     public boolean get_meetsCondition() {
         return _meetsCondition;
     }
-
     public void set_meetsCondition(boolean _meetsCondition) {
         this._meetsCondition = _meetsCondition;
     }
 
     private String _description;
-
     public String get_description() {
         return _description;
     }
-
     public void set_description(String _description) {
         this._description = _description;
     }
