@@ -26,7 +26,7 @@ public class RectangleAdjacencyAnalyzer implements RectangleAnalyzer {
      * @param rectangle1 The first rectangle to test.
      * @param rectangle2 The second rectangle to test.
      * @return An AnalysisResult object with meetsCondition indicating whether the two rectangles are adjacent. The
-     * description property will identify the type of adjacency: proper, sub-line, or partial.
+     * description property will identify the type(s) of adjacency: proper, sub-line, or partial.
      */
     @Override
     public AnalysisResult analyze(Rectangle rectangle1, Rectangle rectangle2) {
