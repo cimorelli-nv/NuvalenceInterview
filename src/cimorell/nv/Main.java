@@ -5,6 +5,8 @@ import cimorell.nv.analyzer.RectangleContainmentAnalyzer;
 import cimorell.nv.analyzer.RectangleIntersectionAnalyzer;
 import cimorell.nv.model.AnalysisResult;
 import cimorell.nv.model.Rectangle;
+import cimorell.nv.model.ValidationResult;
+import cimorell.nv.validation.RectangleValidator;
 
 /**
  * The main entry point for the Nuvalence Interview package, which is capable of comparing two rectangles to check for
@@ -43,6 +45,29 @@ public class Main {
         // Build rectangles from coordinates
         Rectangle r1 = new Rectangle(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
         Rectangle r2 = new Rectangle(coordinates[4], coordinates[5], coordinates[6], coordinates[7]);
+
+        // Validate rectangles
+        RectangleValidator validator = new RectangleValidator();
+        ValidationResult r1Valid = validator.validate(r1);
+        ValidationResult r2Valid = validator.validate(r2);
+        if (!r1Valid.is_valid() || !r2Valid.is_valid()) {
+            if (!r1Valid.is_valid()) {
+                System.out.println(
+                    "Invalid argument: rectangle 1 is not a valid rectangle: " +
+                        String.join(", ", r1Valid.get_errors())
+                );
+            }
+            if (!r2Valid.is_valid()) {
+                System.out.println(
+                    "Invalid argument: rectangle 2 is not a valid rectangle: " +
+                        String.join(", ", r2Valid.get_errors())
+                );
+            }
+
+            printHelp();
+            return;
+        }
+
         System.out.println("Comparing two rectangles");
         System.out.println("\tRectangle 1: " + r1);
         System.out.println("\tRectangle 2: " + r2);
